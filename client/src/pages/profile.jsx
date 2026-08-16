@@ -16,7 +16,7 @@ const [bio, setBio] = useState("");
 
       try {
         const response = await fetch(
-          "http://localhost:5000/api/users/profile",
+          "https://devx-api-4fki.onrender.com/api/users/profile",
           {
             method: "GET",
             headers: {
@@ -57,7 +57,7 @@ setBio(data.bio || "");
 }
     try {
       const response = await fetch(
-        "http://localhost:5000/api/users/profile",
+        "https://devx-api-4fki.onrender.com/api/users/profile",
         {
           method: "PUT",
           headers: {

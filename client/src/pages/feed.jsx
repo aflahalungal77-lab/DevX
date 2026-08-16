@@ -18,7 +18,7 @@ const user = token ? jwtDecode(token) : null;
         return;
       }
       try {
-        const response = await fetch("http://localhost:5000/api/posts", {
+        const response = await fetch("https://devx-api-4fki.onrender.com/api/posts", {
           method: "GET",
           headers: {
             Authorization: `Bearer ${token}`,
@@ -52,8 +52,8 @@ const isLiked = post?.likes?.some(
   (id) => id.toString() === user.user.id
 );
 const url = isLiked
-  ? `http://localhost:5000/api/posts/${postId}/unlike`
-  : `http://localhost:5000/api/posts/${postId}/like`;
+  ? `https://devx-api-4fki.onrender.com/api/posts/${postId}/unlike`
+  : `https://devx-api-4fki.onrender.com/api/posts/${postId}/like`;
 
 const method = isLiked ? "DELETE" : "POST";
     try {
@@ -93,7 +93,7 @@ const handleComment = async (postId) => {
   }
   try {
     const response = await fetch(
-      `http://localhost:5000/api/posts/${postId}/comments`,
+      `https://devx-api-4fki.onrender.com/api/posts/${postId}/comments`,
       {
         method: "POST",
         headers: {

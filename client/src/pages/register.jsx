@@ -15,7 +15,7 @@ function Register() {
   e.preventDefault();
 
   const response = await fetch(
-    "http://localhost:5000/api/auth/register",
+    "https://devx-api-4fki.onrender.com/api/auth/register",
     {
       method: "POST",
       headers: {
@@ -36,7 +36,7 @@ function Register() {
     localStorage.setItem("token", data.token);
     navigate("/login");
   }
-  
+ 
 };
   return (
     <div className="login-page">

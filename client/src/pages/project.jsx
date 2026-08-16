@@ -20,7 +20,7 @@ function Projects() {
       try {
 
         const response = await fetch(
-          "http://localhost:5000/api/projects"
+          "https://devx-api-4fki.onrender.com/api/projects"
         );
 
         const data = await response.json();
@@ -60,7 +60,7 @@ function Projects() {
     try {
 
       const response = await fetch(
-        `http://localhost:5000/api/projects/${projectId}`,
+        `https://devx-api-4fki.onrender.com/api/projects/${projectId}`,
         {
           method: "DELETE",
 
@@ -109,7 +109,7 @@ function Projects() {
     try {
 
       const response = await fetch(
-        `http://localhost:5000/api/projects/${editingProject._id}`,
+        `https://devx-api-4fki.onrender.com/api/projects/${editingProject._id}`,
         {
           method: "PUT",
 
