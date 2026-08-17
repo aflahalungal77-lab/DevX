@@ -40,7 +40,7 @@ function CreateProject({ onProjectCreated }) {
       setLoading(true);
 
       const response = await fetch(
-        "http://localhost:5000/api/projects",
+        "https://devx-api-4fki.onrender.com/api/projects",
         {
           method: "POST",
           headers: {
