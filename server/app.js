@@ -7,7 +7,7 @@ const cors = require("cors");
 const authRoutes = require("./routes/authRoutes");
 const postRoutes = require('./routes/postRoutes');
 const projectRoutes = require("./routes/projectRoutes");
-
+const healthRoutes = require("./routes/healthRoutes");
 
 dotenv.config();
 const port = process.env.PORT || 5000;
@@ -18,7 +18,9 @@ app.use("/api/projects", projectRoutes);
 // Use auth routes
 app.use("/api/auth", authRoutes);
 app.use("/api/users", userRoutes);
+app.use("/health", healthRoutes);
 // Sample route
+
 app.get("/", (req, res) => {
   res.send("Hello, World!");
 });
