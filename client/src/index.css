@@ -1,27 +1,34 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
 
 /* =========================================================
-   DEVX — NEO BRUTALISM DESIGN SYSTEM
+   DEVX — NEO BRUTALISM × BENTO DESIGN SYSTEM
 ========================================================= */
 
 :root {
-  --bg: #f4f1ea;
+  --bg: #f5f3ee;
   --surface: #ffffff;
+  --surface-soft: #eeece5;
+
   --black: #111111;
+  --text: #111111;
+  --muted: #666666;
+
+  --purple: #9b5cff;
+  --purple-dark: #7438d6;
 
   --yellow: #ffe500;
-  --purple: #9b5cff;
   --pink: #ff5ca8;
   --green: #5cff9b;
   --blue: #5cc8ff;
   --red: #ff5c5c;
 
   --border: 3px solid var(--black);
-  --shadow: 7px 7px 0 var(--black);
+
+  --shadow: 8px 8px 0 var(--black);
   --shadow-small: 4px 4px 0 var(--black);
 
-  --text: #111111;
-  --muted: #555555;
+  --radius: 18px;
+  --radius-small: 12px;
 }
 
 /* =========================================================
@@ -40,9 +47,13 @@ html {
 
 body {
   min-height: 100vh;
+
   font-family: "Inter", sans-serif;
+
   background: var(--bg);
   color: var(--text);
+
+  overflow-x: hidden;
 }
 
 button,
@@ -65,6 +76,7 @@ a {
 
 button {
   border: var(--border);
+
   background: var(--yellow);
   color: var(--black);
 
@@ -73,11 +85,14 @@ button {
   font-size: 14px;
   font-weight: 800;
 
+  border-radius: var(--radius-small);
+
   box-shadow: var(--shadow-small);
 
   transition:
     transform 0.12s ease,
-    box-shadow 0.12s ease;
+    box-shadow 0.12s ease,
+    background 0.12s ease;
 }
 
 button:hover {
@@ -91,8 +106,59 @@ button:active {
 }
 
 button:disabled {
-  opacity: 0.5;
+  opacity: 0.55;
   cursor: not-allowed;
+  transform: none !important;
+}
+
+/* =========================================================
+   INPUTS
+========================================================= */
+
+input,
+textarea {
+  width: 100%;
+
+  padding: 13px 14px;
+
+  background: var(--surface);
+  color: var(--black);
+
+  border: var(--border);
+  border-radius: var(--radius-small);
+
+  outline: none;
+
+  font-size: 14px;
+
+  transition:
+    box-shadow 0.15s ease,
+    transform 0.15s ease;
+}
+
+input {
+  min-height: 48px;
+}
+
+textarea {
+  line-height: 1.5;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #888;
+}
+
+input:focus,
+textarea:focus {
+  box-shadow: var(--shadow-small);
+}
+
+label {
+  margin-top: 8px;
+
+  font-size: 13px;
+  font-weight: 800;
 }
 
 /* =========================================================
@@ -109,10 +175,41 @@ button:disabled {
 
   padding: 30px 18px;
 
+  position: relative;
+
   background:
-    radial-gradient(circle at 10% 15%, var(--purple) 0 8%, transparent 8%),
-    radial-gradient(circle at 90% 80%, var(--pink) 0 7%, transparent 7%),
+    radial-gradient(
+      circle at 8% 15%,
+      rgba(155, 92, 255, 0.35) 0 8%,
+      transparent 8%
+    ),
+    radial-gradient(
+      circle at 92% 80%,
+      rgba(255, 92, 168, 0.3) 0 7%,
+      transparent 7%
+    ),
     var(--bg);
+}
+
+.login-page::before {
+  content: "";
+
+  position: absolute;
+
+  width: 100px;
+  height: 100px;
+
+  top: 8%;
+  right: 10%;
+
+  background: var(--yellow);
+
+  border: var(--border);
+  border-radius: 20px;
+
+  transform: rotate(12deg);
+
+  z-index: 0;
 }
 
 .login-container {
@@ -121,11 +218,15 @@ button:disabled {
 
   padding: 40px;
 
+  position: relative;
+  z-index: 1;
+
   background: var(--surface);
 
   border: var(--border);
+  border-radius: var(--radius);
 
-  box-shadow: 10px 10px 0 var(--black);
+  box-shadow: 11px 11px 0 var(--black);
 }
 
 .heading {
@@ -133,9 +234,8 @@ button:disabled {
 
   font-size: 42px;
   font-weight: 900;
-  letter-spacing: -2px;
 
-  color: var(--black);
+  letter-spacing: -2.5px;
 }
 
 .subHeading {
@@ -143,96 +243,68 @@ button:disabled {
 
   text-align: center;
 
+  color: var(--muted);
+
   font-size: 14px;
   font-weight: 600;
-
-  color: var(--muted);
 }
-
-/* =========================================================
-   FORM
-========================================================= */
 
 form {
   display: flex;
   flex-direction: column;
+
   gap: 8px;
-}
-
-label {
-  margin-top: 8px;
-
-  font-size: 13px;
-  font-weight: 800;
-
-  color: var(--black);
-}
-
-input,
-textarea {
-  width: 100%;
-
-  padding: 13px 14px;
-
-  background: #fff;
-
-  color: var(--black);
-
-  border: var(--border);
-
-  outline: none;
-
-  font-size: 14px;
-
-  border-radius: 0;
-
-  transition: box-shadow 0.15s ease;
-}
-
-input {
-  min-height: 48px;
-}
-
-input::placeholder,
-textarea::placeholder {
-  color: #777;
-}
-
-input:focus,
-textarea:focus {
-  box-shadow: var(--shadow-small);
 }
 
 .login-container button {
   width: 100%;
+
   margin-top: 18px;
 
-  background: var(--purple);
-
   min-height: 50px;
+
+  background: var(--purple);
+}
+
+.login-container button:hover {
+  background: var(--pink);
 }
 
 /* =========================================================
-   ERROR
+   MESSAGES
 ========================================================= */
 
-.error-message {
-  margin-bottom: 15px;
+.error-message,
+.success-message {
+  width: 100%;
 
-  padding: 12px;
+  box-sizing: border-box;
 
-  background: #ffd7d7;
+  margin: 15px 0;
 
-  border: var(--border);
+  padding: 11px 13px;
 
-  color: #b00000;
+  border: 2px solid var(--black);
+  border-radius: var(--radius-small);
 
   font-size: 13px;
-  font-weight: 700;
+  line-height: 1.5;
+
+  text-align: left;
+}
+
+.error-message {
+  background: #ffd8d8;
+  color: #9d0000;
+}
+
+.success-message {
+  background: #d5ffe3;
+  color: #087331;
 }
 
 /* =========================================================
-   REGISTER TEXT
+   REGISTER
 ========================================================= */
 
 .register-text {
@@ -250,7 +322,6 @@ textarea:focus {
   font-weight: 900;
 
   text-decoration: underline;
-
   text-decoration-thickness: 2px;
 }
 
@@ -274,29 +345,34 @@ textarea:focus {
   position: sticky;
   top: 0;
 
-  z-index: 100;
+  z-index: 1000;
 
   background: var(--yellow);
 
   border-bottom: var(--border);
+
+  box-shadow: 0 4px 0 rgba(0, 0, 0, 0.08);
 }
 
 .navbar h2 {
   font-size: 27px;
   font-weight: 900;
+
   letter-spacing: -1.5px;
 }
 
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 10px;
+
+  gap: 8px;
 }
 
 .nav-links a {
   padding: 9px 13px;
 
   border: 2px solid transparent;
+  border-radius: 10px;
 
   font-size: 13px;
   font-weight: 800;
@@ -308,8 +384,12 @@ textarea:focus {
 
 .nav-links a:hover {
   background: var(--white);
+
   border-color: var(--black);
+
   box-shadow: var(--shadow-small);
+
+  transform: translate(2px, 2px);
 }
 
 .logout-btn {
@@ -322,7 +402,7 @@ textarea:focus {
 
   border: 2px solid var(--black);
 
-  box-shadow: 3px 3px 0 #fff;
+  box-shadow: 3px 3px 0 white;
 }
 
 .logout-btn:hover {
@@ -341,10 +421,19 @@ textarea:focus {
   justify-content: center;
   align-items: center;
 
-  padding: 40px 20px;
+  padding: 50px 20px;
 
   background:
-    linear-gradient(135deg, transparent 25%, rgba(155, 92, 255, 0.12) 25%),
+    radial-gradient(
+      circle at 15% 20%,
+      rgba(92, 200, 255, 0.2),
+      transparent 25%
+    ),
+    radial-gradient(
+      circle at 85% 75%,
+      rgba(155, 92, 255, 0.18),
+      transparent 25%
+    ),
     var(--bg);
 }
 
@@ -359,8 +448,9 @@ textarea:focus {
   background: var(--surface);
 
   border: var(--border);
+  border-radius: var(--radius);
 
-  box-shadow: 10px 10px 0 var(--black);
+  box-shadow: 11px 11px 0 var(--black);
 }
 
 .profile-avatar {
@@ -376,11 +466,14 @@ textarea:focus {
   background: var(--purple);
 
   border: var(--border);
+  border-radius: 20px;
 
   font-size: 34px;
   font-weight: 900;
 
   box-shadow: var(--shadow-small);
+
+  transform: rotate(-3deg);
 }
 
 .profile-card h1 {
@@ -388,6 +481,8 @@ textarea:focus {
 
   font-size: 28px;
   font-weight: 900;
+
+  letter-spacing: -1px;
 }
 
 .profile-email {
@@ -407,6 +502,8 @@ textarea:focus {
 
 .edit-profile-btn {
   width: 100%;
+
+  background: var(--yellow);
 }
 
 .edit-form {
@@ -414,11 +511,13 @@ textarea:focus {
 
   display: flex;
   flex-direction: column;
+
   gap: 12px;
 }
 
 .edit-form textarea {
   min-height: 110px;
+
   resize: vertical;
 }
 
@@ -430,6 +529,16 @@ textarea:focus {
   background: white;
 }
 
+.bio-counter {
+  margin-top: -8px;
+
+  text-align: right;
+
+  color: var(--muted);
+
+  font-size: 11px;
+}
+
 /* =========================================================
    FEED
 ========================================================= */
@@ -437,15 +546,21 @@ textarea:focus {
 .feed-page {
   min-height: 100vh;
 
-  padding: 45px 20px 80px;
+  padding: 50px 20px 90px;
 
   display: flex;
   flex-direction: column;
   align-items: center;
 
-  gap: 22px;
+  gap: 24px;
 
-  background: var(--bg);
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 229, 0, 0.08),
+      transparent 30%
+    ),
+    var(--bg);
 }
 
 .post-card {
@@ -457,6 +572,7 @@ textarea:focus {
   background: var(--surface);
 
   border: var(--border);
+  border-radius: var(--radius);
 
   box-shadow: var(--shadow);
 
@@ -464,9 +580,9 @@ textarea:focus {
 }
 
 .post-card:hover {
-  transform: translate(-2px, -2px);
+  transform: translate(-3px, -3px);
 
-  box-shadow: 10px 10px 0 var(--black);
+  box-shadow: 11px 11px 0 var(--black);
 }
 
 .post-header {
@@ -491,6 +607,7 @@ textarea:focus {
   background: var(--pink);
 
   border: 2px solid var(--black);
+  border-radius: 12px;
 
   font-weight: 900;
 }
@@ -522,6 +639,7 @@ textarea:focus {
 .post-actions {
   display: flex;
   align-items: center;
+
   gap: 9px;
 
   flex-wrap: wrap;
@@ -536,6 +654,7 @@ textarea:focus {
   background: var(--pink);
 
   border: 2px solid var(--black);
+  border-radius: 12px;
 
   font-size: 20px;
 
@@ -544,6 +663,7 @@ textarea:focus {
 
 .like-btn:hover {
   transform: translate(2px, 2px) rotate(-4deg);
+
   box-shadow: 1px 1px 0 var(--black);
 }
 
@@ -553,7 +673,7 @@ textarea:focus {
 }
 
 /* =========================================================
-   COMMENT
+   COMMENTS
 ========================================================= */
 
 .comment-input {
@@ -564,6 +684,7 @@ textarea:focus {
   height: 42px;
 
   border: 2px solid var(--black);
+  border-radius: 12px;
 }
 
 .comment-btn {
@@ -601,9 +722,10 @@ textarea:focus {
 
   padding: 11px;
 
-  background: #f0eee7;
+  background: var(--surface-soft);
 
   border: 2px solid var(--black);
+  border-radius: 12px;
 }
 
 .comment-avatar {
@@ -619,6 +741,7 @@ textarea:focus {
   background: var(--blue);
 
   border: 2px solid var(--black);
+  border-radius: 8px;
 
   font-size: 11px;
   font-weight: 900;
@@ -653,6 +776,7 @@ textarea:focus {
   background: var(--surface);
 
   border: var(--border);
+  border-radius: var(--radius);
 
   box-shadow: var(--shadow);
 }
@@ -677,6 +801,7 @@ textarea:focus {
   background: var(--purple);
 
   border: 2px solid var(--black);
+  border-radius: 12px;
 
   font-size: 19px;
   font-weight: 900;
@@ -707,6 +832,7 @@ textarea:focus {
   background: #fff;
 
   border: var(--border);
+  border-radius: 14px;
 
   outline: none;
 }
@@ -723,6 +849,7 @@ textarea:focus {
 
 .create-post-bottom span {
   color: var(--muted);
+
   font-size: 12px;
   font-weight: 600;
 }
@@ -734,15 +861,21 @@ textarea:focus {
 }
 
 /* =========================================================
-   PROJECTS
+   PROJECTS — BENTO STYLE
 ========================================================= */
 
 .projects-page {
   min-height: 100vh;
 
-  padding: 70px 7% 60px;
+  padding: 70px 7% 80px;
 
-  background: var(--bg);
+  background:
+    radial-gradient(
+      circle at 90% 10%,
+      rgba(155, 92, 255, 0.14),
+      transparent 25%
+    ),
+    var(--bg);
 }
 
 .projects-container {
@@ -757,9 +890,10 @@ textarea:focus {
 
 .projects-heading h1 {
   font-size: 46px;
+
   font-weight: 900;
 
-  letter-spacing: -2px;
+  letter-spacing: -2.5px;
 }
 
 .projects-heading p {
@@ -774,19 +908,26 @@ textarea:focus {
 .projects-grid {
   display: grid;
 
-  grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
 
-  gap: 25px;
+  gap: 22px;
 }
+
+/* =========================================================
+   PROJECT CARD
+========================================================= */
 
 .project-card {
   position: relative;
+
+  min-height: 300px;
 
   padding: 24px;
 
   background: var(--surface);
 
   border: var(--border);
+  border-radius: var(--radius);
 
   box-shadow: var(--shadow);
 
@@ -795,10 +936,22 @@ textarea:focus {
   transition: 0.15s ease;
 }
 
-.project-card:hover {
-  transform: translate(-3px, -3px);
+.project-card:nth-child(3n + 1) {
+  background: var(--yellow);
+}
 
-  box-shadow: 11px 11px 0 var(--black);
+.project-card:nth-child(3n + 2) {
+  background: var(--surface);
+}
+
+.project-card:nth-child(3n) {
+  background: var(--blue);
+}
+
+.project-card:hover {
+  transform: translate(-4px, -4px);
+
+  box-shadow: 12px 12px 0 var(--black);
 }
 
 .project-card::before {
@@ -806,15 +959,16 @@ textarea:focus {
 
   position: absolute;
 
-  width: 90px;
-  height: 90px;
+  width: 100px;
+  height: 100px;
 
-  top: -40px;
-  right: -30px;
+  top: -45px;
+  right: -35px;
 
-  background: var(--yellow);
+  background: var(--pink);
 
   border: 3px solid var(--black);
+  border-radius: 20px;
 
   transform: rotate(20deg);
 }
@@ -826,6 +980,9 @@ textarea:focus {
   gap: 12px;
 
   margin-bottom: 25px;
+
+  position: relative;
+  z-index: 2;
 }
 
 .project-avatar {
@@ -839,9 +996,12 @@ textarea:focus {
   background: var(--purple);
 
   border: 2px solid var(--black);
+  border-radius: 12px;
 
   font-size: 18px;
   font-weight: 900;
+
+  box-shadow: 3px 3px 0 var(--black);
 }
 
 .project-header h3 {
@@ -864,12 +1024,14 @@ textarea:focus {
 
   font-size: 24px;
   font-weight: 900;
+
+  letter-spacing: -1px;
 }
 
 .project-content p {
   min-height: 48px;
 
-  color: #444;
+  color: #333;
 
   font-size: 14px;
 
@@ -888,9 +1050,10 @@ textarea:focus {
 .technologies span {
   padding: 6px 10px;
 
-  background: var(--blue);
+  background: white;
 
   border: 2px solid var(--black);
+  border-radius: 8px;
 
   font-size: 11px;
   font-weight: 800;
@@ -927,8 +1090,7 @@ textarea:focus {
   padding: 10px 13px;
 
   border: 2px solid var(--black);
-
-  border-radius: 0;
+  border-radius: 10px;
 
   font-size: 12px;
   font-weight: 900;
@@ -951,8 +1113,8 @@ textarea:focus {
 }
 
 .edit-project-btn {
-  background: var(--blue);
-  color: var(--black);
+  background: var(--purple);
+  color: white;
 }
 
 .delete-project-btn {
@@ -981,9 +1143,10 @@ textarea:focus {
 
   padding: 26px;
 
-  background: var(--yellow);
+  background: var(--purple);
 
   border: var(--border);
+  border-radius: var(--radius);
 
   box-shadow: var(--shadow);
 
@@ -992,6 +1155,8 @@ textarea:focus {
 
 .create-project-card h2 {
   margin-bottom: 22px;
+
+  color: white;
 
   font-size: 25px;
   font-weight: 900;
@@ -1014,14 +1179,14 @@ textarea:focus {
   width: 100%;
 
   background: var(--black);
-
   color: white;
 
   box-shadow: 4px 4px 0 white;
 }
 
 .create-project-card button:hover {
-  background: var(--purple);
+  background: var(--yellow);
+  color: var(--black);
 }
 
 /* =========================================================
@@ -1035,9 +1200,10 @@ textarea:focus {
 
   text-align: center;
 
-  background: white;
+  background: var(--surface);
 
   border: var(--border);
+  border-radius: var(--radius);
 
   box-shadow: var(--shadow);
 }
@@ -1051,6 +1217,7 @@ textarea:focus {
 
 .no-projects p {
   color: var(--muted);
+
   font-size: 14px;
 }
 
@@ -1060,6 +1227,7 @@ textarea:focus {
 
 .edit-project-overlay {
   position: fixed;
+
   inset: 0;
 
   display: flex;
@@ -1068,7 +1236,7 @@ textarea:focus {
 
   padding: 20px;
 
-  background: rgba(0, 0, 0, 0.75);
+  background: rgba(17, 17, 17, 0.78);
 
   z-index: 9999;
 }
@@ -1086,6 +1254,7 @@ textarea:focus {
   background: var(--surface);
 
   border: var(--border);
+  border-radius: var(--radius);
 
   box-shadow: 12px 12px 0 var(--yellow);
 }
@@ -1104,6 +1273,7 @@ textarea:focus {
 
 .edit-project-modal textarea {
   min-height: 110px;
+
   resize: vertical;
 }
 
@@ -1126,16 +1296,17 @@ textarea:focus {
 }
 
 /* =========================================================
-   RESPONSIVE — TABLET
+   TABLET
 ========================================================= */
 
 @media (max-width: 900px) {
+
   .navbar {
     padding: 12px 20px;
   }
 
   .projects-page {
-    padding: 55px 5% 50px;
+    padding: 55px 5% 60px;
   }
 
   .projects-grid {
@@ -1144,15 +1315,16 @@ textarea:focus {
 }
 
 /* =========================================================
-   RESPONSIVE — MOBILE
+   MOBILE
 ========================================================= */
 
 @media (max-width: 600px) {
+
   body {
     overflow-x: hidden;
   }
 
-  /* Navbar */
+  /* NAVBAR */
 
   .navbar {
     min-height: auto;
@@ -1186,13 +1358,21 @@ textarea:focus {
 
   .logout-btn {
     padding: 7px 10px;
+
     font-size: 11px;
   }
 
-  /* Auth */
+  /* AUTH */
 
   .login-page {
     padding: 20px 14px;
+  }
+
+  .login-page::before {
+    width: 60px;
+    height: 60px;
+
+    right: 5%;
   }
 
   .login-container {
@@ -1205,7 +1385,7 @@ textarea:focus {
     font-size: 34px;
   }
 
-  /* Profile */
+  /* PROFILE */
 
   .profile-page {
     padding: 25px 15px;
@@ -1217,7 +1397,18 @@ textarea:focus {
     box-shadow: 6px 6px 0 var(--black);
   }
 
-  /* Feed */
+  .profile-card h1 {
+    font-size: 24px;
+  }
+
+  .profile-avatar {
+    width: 78px;
+    height: 78px;
+
+    font-size: 30px;
+  }
+
+  /* FEED */
 
   .feed-page {
     padding: 30px 14px 60px;
@@ -1245,7 +1436,7 @@ textarea:focus {
     align-items: flex-end;
   }
 
-  /* Projects */
+  /* PROJECTS */
 
   .projects-page {
     padding: 40px 15px;
@@ -1262,6 +1453,8 @@ textarea:focus {
   }
 
   .project-card {
+    min-height: auto;
+
     padding: 20px;
 
     box-shadow: 5px 5px 0 var(--black);
@@ -1284,10 +1477,11 @@ textarea:focus {
   .edit-project-btn,
   .delete-project-btn {
     width: 100%;
+
     min-width: 0;
   }
 
-  /* Create project */
+  /* CREATE PROJECT */
 
   .create-project-card {
     padding: 20px;
@@ -1295,7 +1489,7 @@ textarea:focus {
     box-shadow: 5px 5px 0 var(--black);
   }
 
-  /* Modal */
+  /* MODAL */
 
   .edit-project-overlay {
     padding: 12px;
@@ -1321,6 +1515,7 @@ textarea:focus {
 ========================================================= */
 
 @media (max-width: 400px) {
+
   .navbar {
     padding: 10px;
   }
@@ -1353,107 +1548,32 @@ textarea:focus {
     padding: 17px;
   }
 }
-/* =========================
-   PROFILE MESSAGES
-========================= */
 
-.error-message {
-  width: 100%;
-  box-sizing: border-box;
+/* =========================================================
+   SCROLLBAR
+========================================================= */
 
-  margin: 15px 0;
+::-webkit-scrollbar {
+  width: 10px;
+}
 
-  padding: 11px 13px;
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--black);
+
+  border: 2px solid var(--bg);
 
   border-radius: 10px;
-
-  background: rgba(239, 68, 68, 0.08);
-
-  border: 1px solid rgba(239, 68, 68, 0.25);
-
-  color: #ff8d8d;
-
-  font-size: 13px;
-  line-height: 1.5;
-
-  text-align: left;
 }
 
-.success-message {
-  width: 100%;
-  box-sizing: border-box;
+/* =========================================================
+   SELECTION
+========================================================= */
 
-  margin: 15px 0;
-
-  padding: 11px 13px;
-
-  border-radius: 10px;
-
-  background: rgba(34, 197, 94, 0.08);
-
-  border: 1px solid rgba(34, 197, 94, 0.25);
-
-  color: #6ee7a0;
-
-  font-size: 13px;
-
-  text-align: left;
-}
-
-
-/* =========================
-   BIO COUNTER
-========================= */
-
-.bio-counter {
-  margin-top: -8px;
-
-  text-align: right;
-
-  color: var(--text-muted);
-
-  font-size: 11px;
-}
-
-
-/* =========================
-   DISABLED BUTTON
-========================= */
-
-button:disabled {
-  opacity: 0.55;
-  cursor: not-allowed;
-  transform: none !important;
-}
-
-
-/* =========================
-   PROFILE MOBILE
-========================= */
-
-@media (max-width: 480px) {
-
-  .profile-page {
-    padding: 20px 14px;
-  }
-
-  .profile-card {
-    padding: 32px 20px;
-  }
-
-  .profile-card h1 {
-    font-size: 24px;
-  }
-
-  .profile-avatar {
-    width: 78px;
-    height: 78px;
-
-    font-size: 30px;
-  }
-
-  .edit-form {
-    width: 100%;
-  }
-
+::selection {
+  background: var(--yellow);
+  color: var(--black);
 }
