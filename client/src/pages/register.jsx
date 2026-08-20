@@ -103,7 +103,7 @@ function Register() {
         </h1>
 
         <p className="subHeading">
-          Join DevX today
+          Join DVexo today
         </p>
 
         {error && (

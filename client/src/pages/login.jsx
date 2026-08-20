@@ -89,11 +89,11 @@ function Login() {
       <div className="login-container">
 
         <h1 className="heading">
-          DevX
+          DVexo
         </h1>
 
         <p className="subHeading">
-          Welcome back to DevX
+          Welcome back to DVexo
         </p>
 
         {error && (

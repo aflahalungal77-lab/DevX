@@ -10,7 +10,7 @@ const handleLogout = () => {
 };
   return (
     <nav className="navbar">
-      <h2>DevX</h2>
+      <h2>DVexo</h2>
 
       <div className="nav-links">
         <NavLink to="/feed">Feed</NavLink>
